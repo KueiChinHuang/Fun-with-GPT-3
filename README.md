@@ -1,6 +1,7 @@
-# OpenAI API Quickstart - Node.js example app
+# Shopify Frontend Developer Intern - Fall 2022 (Remote US & Canada) Code Challenge
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+ - Position Description: https://jobs.smartrecruiters.com/ni/Shopify/d28fb10a-9ff6-497a-8351-05d1b1e21dcd-frontend-developer-intern-fall-2022-remote-us-canada-?utm_source=Intern-site&utm_medium=Intern-site&utm_campaign=May2022
+ - Code Challenge Description: https://docs.google.com/document/d/1O7mCynsz_cBXkEaCFGSZAuvAOY84QVq35l20xJwjOYg/edit?usp=sharing
 
 ## Setup
 
@@ -34,4 +35,4 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
    $ npm run dev
    ```
 
-You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! 
