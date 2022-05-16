@@ -3,45 +3,80 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
+	const [input, setInput] = useState("");
+	const [recommendation, setRecommendation] = useState([]);
+	const [results, setResults] = useState([]);
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ animal: animalInput }),
-    });
-    const data = await response.json();
-    setResult(data.result);
-    setAnimalInput("");
-  }
+	async function onSubmit(event) {
+		event.preventDefault();
+		const response = await fetch("/api/generate", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ input }),
+		});
+		const data = await response.json();
+		setResults((prev) => {
+			return [{ input: input, result: data.result }, ...prev];
+		});
+		setInput("");
+	}
 
-  return (
-    <div>
-      <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+	async function onChange(event) {
+		// event.preventDefault();
+		setInput(event.target.value);
+		// const response = await fetch("/api/potential-prompt", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	body: JSON.stringify({ input }),
+		// });
+		// const data = await response.json();
+		// setRecommendation(data.result);
+	}
 
-      <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <input type="submit" value="Generate names" />
-        </form>
-        <div className={styles.result}>{result}</div>
-      </main>
-    </div>
-  );
+	return (
+		<div>
+			<Head>
+				<title>OpenAI Quickstart</title>
+				<link rel="icon" href="/dog.png" />
+			</Head>
+
+			<main className={styles.main}>
+				<img src="/dog.png" className={styles.icon} />
+				<h3>Fun with API</h3>
+
+				<form onSubmit={onSubmit}>
+					<label>
+						Enter prompt:
+						<textarea
+							rows="5"
+							cols="50"
+							// list="potential-prompt"
+							name="myBrowser"
+							value={input}
+							onChange={onChange}
+						/>
+					</label>
+					{/* <datalist id="potential-prompt">
+						{recommendation.map((item) => {
+							return <option value={input + item.text} />;
+						})}
+					</datalist> */}
+					{console.log(input)}
+					<input type="submit" value="Send" />
+				</form>
+				{results.map((result) => {
+					return (
+						<div className={styles.result}>
+							<p>Input: {result.input}</p>
+							<div>Result: {`${result.result}`}</div>
+						</div>
+					);
+				})}
+			</main>
+		</div>
+	);
 }
