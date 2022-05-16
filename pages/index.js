@@ -48,7 +48,7 @@ export default function Home() {
 					return (
 						<div className={styles.result}>
 							<p>Input: {result.input}</p>
-							<div>Result: {`${result.result}`}</div>
+							<p>Result: {`${result.result}`}</p>
 						</div>
 					);
 				})}
