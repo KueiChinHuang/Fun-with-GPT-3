@@ -4,7 +4,6 @@ import styles from "./index.module.css";
 
 export default function Home() {
 	const [input, setInput] = useState("");
-	const [recommendation, setRecommendation] = useState([]);
 	const [results, setResults] = useState([]);
 
 	async function onSubmit(event) {
@@ -24,17 +23,7 @@ export default function Home() {
 	}
 
 	async function onChange(event) {
-		// event.preventDefault();
 		setInput(event.target.value);
-		// const response = await fetch("/api/potential-prompt", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify({ input }),
-		// });
-		// const data = await response.json();
-		// setRecommendation(data.result);
 	}
 
 	return (
@@ -51,21 +40,8 @@ export default function Home() {
 				<form onSubmit={onSubmit}>
 					<label>
 						Enter prompt:
-						<textarea
-							rows="5"
-							cols="50"
-							// list="potential-prompt"
-							name="myBrowser"
-							value={input}
-							onChange={onChange}
-						/>
+						<textarea rows="5" value={input} onChange={onChange} />
 					</label>
-					{/* <datalist id="potential-prompt">
-						{recommendation.map((item) => {
-							return <option value={input + item.text} />;
-						})}
-					</datalist> */}
-					{console.log(input)}
 					<input type="submit" value="Send" />
 				</form>
 				{results.map((result) => {
