@@ -2,6 +2,7 @@
 
  - Position Description: https://jobs.smartrecruiters.com/ni/Shopify/d28fb10a-9ff6-497a-8351-05d1b1e21dcd-frontend-developer-intern-fall-2022-remote-us-canada-?utm_source=Intern-site&utm_medium=Intern-site&utm_campaign=May2022
  - Code Challenge Description: https://docs.google.com/document/d/1O7mCynsz_cBXkEaCFGSZAuvAOY84QVq35l20xJwjOYg/edit?usp=sharing
+ - This app is live at: https://fun-with-gpt-3-delta.vercel.app/
 
 ## Setup
 
