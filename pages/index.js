@@ -5,6 +5,7 @@ import examples from "./examples.json";
 
 export default function Home() {
 	const [input, setInput] = useState("");
+	const [loading, setLoading] = useState(false);
 	const [histories, setHistories] = useState(() => {
 		let initialValue = [];
 		if (
@@ -19,6 +20,7 @@ export default function Home() {
 
 	const onSubmit = async (event) => {
 		event.preventDefault();
+		setLoading(true);
 		const response = await fetch("/api/generate", {
 			method: "POST",
 			headers: {
@@ -33,6 +35,7 @@ export default function Home() {
 			return newHistory;
 		});
 		resetForm();
+		setLoading(false);
 	};
 
 	const displayHistory = () => {
@@ -101,7 +104,7 @@ export default function Home() {
 							<button type="reset" onClick={resetForm}>
 								Clear
 							</button>
-							<button type="submit">Send</button>
+							<button type="submit">{loading ? "Getting Data...": "Send"}</button>
 						</div>
 					</form>
 				</section>
