@@ -4,26 +4,41 @@ import styles from "./index.module.css";
 
 export default function Home() {
 	const [input, setInput] = useState("");
-	const [results, setResults] = useState([]);
+	const [histories, setHistories] = useState([]);
 
-	async function onSubmit(event) {
+	const onSubmit = async (event) => {
 		event.preventDefault();
 		const response = await fetch("/api/generate", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ input }),
+			body: JSON.stringify({ input: input}),
 		});
 		const data = await response.json();
-		setResults((prev) => {
+		setHistories((prev) => {
 			return [{ input: input, result: data.result }, ...prev];
 		});
 		setInput("");
 	}
 
-	async function onChange(event) {
+	const onChange = (event) => {
 		setInput(event.target.value);
+	}
+
+	const displayHistory = () => {
+		return histories.map((history) => {
+			const i = history.input;
+			const r = history.result;
+			return (
+				<div className={styles.result}>
+					<h4>Input:</h4>
+					<p style={{"white-space": "pre-line"}}> {i}</p>
+					<h4>Result: </h4>
+					<p style={{"white-space": "pre-line"}}>{r}</p>
+				</div>
+			);
+		})
 	}
 
 	return (
@@ -35,23 +50,20 @@ export default function Home() {
 
 			<main className={styles.main}>
 				<img src="/dog.png" className={styles.icon} />
-				<h3>Fun with API</h3>
+				<h3>Fun with GPT-3 OpenAI</h3>
 
 				<form onSubmit={onSubmit}>
+					<select id="input-suggestion">
+						<option value="" disabled selected>Input Suggestions</option>
+						<option value="Who are you?">Who are you?</option>;
+					</select>
 					<label>
 						Enter prompt:
-						<textarea rows="5" value={input} onChange={onChange} />
+						<textarea rows="5" value={input} list="input-suggestion" onChange={onChange} />
 					</label>
 					<input type="submit" value="Send" />
 				</form>
-				{results.map((result) => {
-					return (
-						<div className={styles.result}>
-							<p>Input: {result.input}</p>
-							<p>Result: {`${result.result}`}</p>
-						</div>
-					);
-				})}
+				{displayHistory()}
 			</main>
 		</div>
 	);
