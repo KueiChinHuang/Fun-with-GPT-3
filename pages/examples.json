@@ -1,0 +1,18 @@
+[
+	{
+		"title": "Grammar correction",
+		"content": "Correct this to standard English:\n\nShe no went to the market."
+	},
+	{
+		"title": "Text to command",
+		"content": "Convert this text to a programmatic command:\n\nText: Ask Constance if we need some bread\nCommand: send-msg `find constance` Do we need some bread?\n\nText: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday\nCommand:"
+	},
+	{
+		"title": "English to other languages",
+		"content": "Translate this into 1. French, 2. Spanish and 3. Japanese:\n\nWhat rooms do you have available?\n\n"
+	},
+	{
+		"title": "Classification",
+		"content": "The following is a list of companies and the categories they fall into:\n\nApple, Facebook, Fedex\n\n\nApple\nCategory:"
+	}
+]
