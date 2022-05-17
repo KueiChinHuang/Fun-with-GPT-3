@@ -5,7 +5,17 @@ import examples from "./examples.json";
 
 export default function Home() {
 	const [input, setInput] = useState("");
-	const [histories, setHistories] = useState([]);
+	const [histories, setHistories] = useState(() => {
+		let initialValue = [];
+		if (
+			typeof window !== "undefined" &&
+			localStorage.getItem("histories")
+		) {
+			const saved = localStorage.getItem("histories");
+			initialValue = JSON.parse(saved);
+		}
+		return initialValue;
+	});
 
 	const onSubmit = async (event) => {
 		event.preventDefault();
@@ -18,7 +28,9 @@ export default function Home() {
 		});
 		const data = await response.json();
 		setHistories((prev) => {
-			return [{ input: input, result: data.result }, ...prev];
+			const newHistory = [{ input: input, result: data.result }, ...prev];
+			localStorage.setItem("histories", JSON.stringify(newHistory));
+			return newHistory;
 		});
 		resetForm();
 	};
@@ -37,6 +49,11 @@ export default function Home() {
 	const resetForm = () => {
 		document.getElementById("prompt-input-form").reset();
 		setInput("");
+	};
+
+	const resetHistory = () => {
+		localStorage.removeItem("histories");
+		setHistories([]);
 	};
 
 	return (
@@ -83,7 +100,17 @@ export default function Home() {
 					</div>
 				</form>
 
-				{displayHistory()}
+				<h3>Response History</h3>
+				{histories.length == 0 ? (
+					<h4>There is no history yet.</h4>
+				) : (
+					<>
+						<button type="reset" onClick={resetHistory}>
+							Reset History
+						</button>
+						{displayHistory()}
+					</>
+				)}
 			</main>
 		</div>
 	);
