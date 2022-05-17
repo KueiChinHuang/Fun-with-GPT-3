@@ -64,53 +64,60 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<img src="/dog.png" className={styles.icon} />
-				<h3>Fun with GPT-3 OpenAI</h3>
+				<section>
+					<img src="/dog.png" className={styles.icon} />
+					<h3>Fun with GPT-3 OpenAI</h3>
 
-				<form id="prompt-input-form" onSubmit={onSubmit}>
-					<label>
-						Enter prompt:
-						<textarea
-							rows="8"
-							value={input}
-							onChange={(event) => setInput(event.target.value)}
-						></textarea>
-					</label>
-					<label>
-						Inspiration:
-						<select
-							id="input-suggestion"
-							onChange={(event) => setInput(event.target.value)}
-						>
-							<option value="" disabled selected>
-								Select an example...
-							</option>
-							{examples.map((example) => (
-								<option value={example.content}>
-									{example.title}
+					<form id="prompt-input-form" onSubmit={onSubmit}>
+						<label>
+							Enter prompt:
+							<textarea
+								rows="8"
+								value={input}
+								onChange={(event) =>
+									setInput(event.target.value)
+								}
+							></textarea>
+						</label>
+						<label>
+							Inspiration:
+							<select
+								id="input-suggestion"
+								onChange={(event) =>
+									setInput(event.target.value)
+								}
+							>
+								<option value="" disabled selected>
+									Select an example...
 								</option>
-							))}
-						</select>
-					</label>
-					<div className={styles.buttonGroup}>
-						<button type="reset" onClick={resetForm}>
-							Clear
-						</button>
-						<button type="submit">Send</button>
-					</div>
-				</form>
-
-				<h3>Response History</h3>
-				{histories.length == 0 ? (
-					<h4>There is no history yet.</h4>
-				) : (
-					<>
-						<button type="reset" onClick={resetHistory}>
-							Reset History
-						</button>
-						{displayHistory()}
-					</>
-				)}
+								{examples.map((example) => (
+									<option value={example.content}>
+										{example.title}
+									</option>
+								))}
+							</select>
+						</label>
+						<div className={styles.buttonGroup}>
+							<button type="reset" onClick={resetForm}>
+								Clear
+							</button>
+							<button type="submit">Send</button>
+						</div>
+					</form>
+				</section>
+				<section>
+					<h3>Response History</h3>
+					{histories.length == 0 ? (
+						<h4>There is no history yet.</h4>
+					) : (
+						<>
+							<button type="reset" onClick={resetHistory}>
+								Reset History
+							</button>
+							{displayHistory()}
+						</>
+					)}
+				</section>
 			</main>
 		</div>
 	);
