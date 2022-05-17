@@ -63,12 +63,12 @@ export default function Home() {
 		<div>
 			<Head>
 				<title>Fun with GPT-3 OpenAI</title>
-				<link rel="icon" href="/dog.png" />
+				<link rel="icon" href="/launch.png" />
 			</Head>
 
 			<main className={styles.main}>
 				<section>
-					<img src="/dog.png" className={styles.icon} />
+					<img src="/launch.png" className={styles.icon} />
 					<h3>Fun with GPT-3 OpenAI</h3>
 
 					<form id="prompt-input-form" onSubmit={onSubmit}>
