@@ -1,3 +1,8 @@
+/**
+ * Credit of ScrollButton: GeeksforGeeks 
+ * https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
+ */
+
 import React, { useState } from "react";
 
 const ScrollButton = () => {
@@ -16,8 +21,6 @@ const ScrollButton = () => {
 		window.scrollTo({
 			top: 0,
 			behavior: "smooth",
-			/* you can also use 'auto' behaviour
-			 in place of 'smooth' */
 		});
 	};
 

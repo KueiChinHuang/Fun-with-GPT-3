@@ -1,3 +1,9 @@
+/**
+ * Credit of the app archictecture: OpenAI
+ * Git Repo: https://github.com/openai/openai-quickstart-node
+ * Website: https://beta.openai.com/docs/quickstart
+ */
+
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
