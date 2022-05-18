@@ -71,6 +71,10 @@
 	cursor: pointer;
 	width: 48%;
 }
+.main button:hover {
+	background-color: #0a7258;
+
+}
 .main .result {
 	margin-top: 40px;
 	background-color: #cefdf3;
