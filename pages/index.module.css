@@ -89,7 +89,7 @@
 	}
 	.main section {
 		padding: 60px 0;
-		flex-grow: 1;
+		width: 50%;
 	}
 	.main .result {
 		width: 80%;

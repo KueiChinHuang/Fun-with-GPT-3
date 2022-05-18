@@ -100,8 +100,8 @@ export default function Home() {
 								<option value="" disabled selected>
 									Select an example...
 								</option>
-								{examples.map((example) => (
-									<option value={example.content}>
+								{examples.map((example, index) => (
+									<option value={example.content} key={index}>
 										{example.title}
 									</option>
 								))}
