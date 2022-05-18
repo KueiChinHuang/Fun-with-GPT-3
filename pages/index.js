@@ -111,7 +111,7 @@ export default function Home() {
 				<section>
 					<h3>Response History</h3>
 					{histories.length == 0 ? (
-						<h4>There is no history yet.</h4>
+						<p>There is no response history so far. Please send out your first prompt. :)</p>
 					) : (
 						<>
 							<button type="reset" onClick={resetHistory}>

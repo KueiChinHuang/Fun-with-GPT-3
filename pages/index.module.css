@@ -82,3 +82,16 @@
 	padding: 10px 20px;
 	width: 100%;
 }
+
+@media screen and (min-width: 1200px) {
+	.main {
+		display: flex;
+	}
+	.main section {
+		padding: 60px 0;
+		flex-grow: 1;
+	}
+	.main .result {
+		width: 80%;
+	}
+  }
