@@ -1,11 +1,16 @@
 /**
- * Credit of ScrollButton: GeeksforGeeks 
+ * Credit of ScrollButton: GeeksforGeeks
  * https://www.geeksforgeeks.org/how-to-create-a-scroll-to-top-button-in-react-js/
  */
 
 import React, { useState } from "react";
 
 const ScrollButton = () => {
+
+	if (typeof window !== "undefined") {
+		window.addEventListener("scroll", toggleVisible);
+	}
+    
 	const [visible, setVisible] = useState(false);
 
 	const toggleVisible = () => {
@@ -23,8 +28,6 @@ const ScrollButton = () => {
 			behavior: "smooth",
 		});
 	};
-
-	window.addEventListener("scroll", toggleVisible);
 
 	return (
 		<button

@@ -111,14 +111,19 @@ export default function Home() {
 							<button type="reset" onClick={resetForm}>
 								Clear
 							</button>
-							<button type="submit">{loading ? "Getting Data...": "Send"}</button>
+							<button type="submit">
+								{loading ? "Getting Data..." : "Send"}
+							</button>
 						</div>
 					</form>
 				</section>
 				<section>
 					<h3>Response History</h3>
 					{histories.length == 0 ? (
-						<p>There is no response history so far. Please send out your first prompt. :)</p>
+						<p>
+							There is no response history so far. Please send out
+							your first prompt. :)
+						</p>
 					) : (
 						<>
 							<button type="reset" onClick={resetHistory}>
