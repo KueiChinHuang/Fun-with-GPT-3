@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import examples from "./examples.json";
+import ScrollButton from "../components/ScrollButton";
 
 export default function Home() {
 	const [input, setInput] = useState("");
@@ -120,6 +121,7 @@ export default function Home() {
 							{displayHistory()}
 						</>
 					)}
+					<ScrollButton />
 				</section>
 			</main>
 		</div>

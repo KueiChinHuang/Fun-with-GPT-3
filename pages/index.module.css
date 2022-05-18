@@ -63,6 +63,7 @@
 }
 .main button {
 	padding: 12px 0;
+	margin: 20px 0;
 	color: #fff;
 	background-color: #10a37f;
 	border: none;
@@ -73,10 +74,9 @@
 }
 .main button:hover {
 	background-color: #0a7258;
-
 }
 .main .result {
-	margin-top: 40px;
+	margin: 20px 0;
 	background-color: #cefdf3;
 	border-radius: 4px;
 	padding: 10px 20px;
@@ -94,4 +94,4 @@
 	.main .result {
 		width: 80%;
 	}
-  }
+}
